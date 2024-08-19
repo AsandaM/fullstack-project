@@ -19,7 +19,6 @@ const insertUserDb = async(firstName, lastName, userAge, gender, userRole, email
     return data
 }
 
-// console.log(await insertUserDb('John', 'Smith', 31, 'C++', 'Toyota', 'Green' ))
 
 const editUserDb = async(firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile, id)=>{
     await pool.query(`UPDATE users 
