@@ -34,8 +34,13 @@ const insertUser = async(req, res)=>{
 
 
 const deleteUser = async(req, res)=>{
-    await deleteUserDb(req.params.id)
-    res.send('User has been deleted')
+    try {
+        await deleteUserDb(req.params.id)
+        res.send('User has been deleted')
+        
+    } catch (err) {
+        res.send('Error deleting a user')
+    }
 }
 
 const editUser = async(req, res)=>{
