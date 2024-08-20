@@ -1,5 +1,5 @@
 import { compare } from "bcrypt"
-import { getUserDb } from "../model/usersDb.js"
+import { loginDb } from "../model/usersDb.js"
 import jwt from 'jsonwebtoken'
 import {config} from 'dotenv'
 
@@ -7,15 +7,13 @@ config()
 
 
 const checkUser = async(req, res, next)=>{
-    const {emailAdd, password} = req.body
-    let hashedPassword = (await getUserDb(emailAdd)).password
-    console.log(hashedPassword);
-     
-    compare(password, hashedPassword, (err, result)=>{
+    const {emailAdd, userPass} = req.body
+    let hashedPassword = (await loginDb(emailAdd)).userPass
+   
+    compare(userPass, hashedPassword, (err, result)=>{
         if(result == true){
             let token = jwt.sign({emailAdd:emailAdd}, process.env.SECRET_KEY, {expiresIn: '1h'})
-            console.log(token);
-            
+            // console.log(token);  
             req.body.token = token
             next()
             return
