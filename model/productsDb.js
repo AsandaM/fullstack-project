@@ -1,9 +1,19 @@
 import {pool} from '../config/config.js'
 
 const getProductsDb = async()=>{
-    let [data] = await pool.query('SELECT * FROM products')
+    let [data] = await pool.query('SELECT * FFROM products')
     return data
 }
+
+const getRecentDb = async()=>{
+    let [data] = await pool.query('SELECT * FROM products LIMIT 5')
+    return data
+}
+
+const getHomeRecentDb =  async()=>{
+    let [data] = await pool.query('SELECT * FROM products LIMIT 3')
+    return data
+} 
 
 const getProductDb = async(id)=>{
     let [[data]] = await pool.query('SELECT * FROM products WHERE prodID = ?', [id])
@@ -28,4 +38,4 @@ const editProductDb = async(prodName, quantity, amount, category, prodURL, prodD
 
 
 
-export {getProductsDb, getProductDb, deleteProductDb, insertProductDb, editProductDb}
+export {getProductsDb, getProductDb, deleteProductDb, insertProductDb, editProductDb, getRecentDb, getHomeRecentDb}
