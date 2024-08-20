@@ -7,13 +7,13 @@ config()
 
 
 const checkUser = async(req, res, next)=>{
-    const {username, password} = req.body
-    let hashedPassword = (await getUserDb(username)).password
+    const {emailAdd, password} = req.body
+    let hashedPassword = (await getUserDb(emailAdd)).password
     console.log(hashedPassword);
      
     compare(password, hashedPassword, (err, result)=>{
         if(result == true){
-            let token = jwt.sign({username:username}, process.env.SECRET_KEY, {expiresIn: '1h'})
+            let token = jwt.sign({emailAdd:emailAdd}, process.env.SECRET_KEY, {expiresIn: '1h'})
             console.log(token);
             
             req.body.token = token
