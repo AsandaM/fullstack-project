@@ -45,7 +45,7 @@ const insertProduct = async(req, res)=>{
         await insertProductDb(prodName, quantity, amount, category, prodURL, prodDescription)
         res.send('Data was inserted successfully')
         
-    } catch (error) {
+    } catch (err) {
         res.send('Error inserting a product')
         throw err
         
