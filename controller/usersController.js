@@ -45,8 +45,6 @@ const deleteUser = async(req, res)=>{
 
 const editUser = async(req, res)=>{
     let {firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile} = req.body
-
-    
     let user = await getUserDb(req.params.id)
 
     
@@ -57,10 +55,6 @@ const editUser = async(req, res)=>{
     userRole? userRole = userRole: userRole = user.userRole
     emailAdd? emailAdd = emailAdd: emailAdd = user.emailAdd
     userProfile? userProfile = userProfile: userProfile = user.userProfile
-
-
-    
-    
     
     try {
         if(userPass!=''){
