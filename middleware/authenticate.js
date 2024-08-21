@@ -6,6 +6,17 @@ import {config} from 'dotenv'
 config()
 
 
+const emailCheck = async(req, res, next)=>{
+    const {emailAdd} = req.body
+    let user = await loginDb(emailAdd)
+    if(user){
+        next()
+        return
+    }
+    res.send('Email not found')
+}
+
+
 const checkUser = async(req, res, next)=>{
     const {emailAdd, userPass} = req.body
     let hashedPassword = (await loginDb(emailAdd)).userPass
@@ -42,4 +53,4 @@ const verifyAToken = (req, res, next)=>{
 
 
 
-export {checkUser, verifyAToken}
+export {checkUser, verifyAToken, emailCheck}

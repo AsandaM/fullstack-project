@@ -3,37 +3,37 @@ import {getProductsDb, getProductDb, deleteProductDb, insertProductDb, editProdu
 
 const getProducts = async(req, res)=>{
     try{
-        res.json(await getProductsDb())
+        res.status(200).json(await getProductsDb())
     } catch(err){
-        res.send('Error fetching products')
+        res.status(500).send('Error fetching products')
         throw err
         
     }
 }
 const getHomeRecent = async(req, res)=>{
     try {
-        res.json(await getHomeRecentDb())    
+        res.status(200).json(await getHomeRecentDb())    
     } catch (err) {
-        res.send('Error fetching  3 products')
+        res.status(500).send('Error fetching  3 products')
         throw err
     }
 }
 const getRecent = async(req, res)=>{
     try {
-        res.json(await getRecentDb())
+        res.status(200).json(await getRecentDb())
         
     } catch (err) {
-        res.send('Error fetching  3 products')
+        res.status(500).send('Error fetching  3 products')
         throw err
     }
 }
 
 const getProduct = async(req, res)=>{
     try {
-        res.json(await getProductDb(req.params.id))
+        res.status(200).json(await getProductDb(req.params.id))
         
     } catch (err) {
-        res.send('Error fetching  a single product')
+        res.status(500).send('Error fetching  a single product')
         throw err
     }
 }
@@ -43,10 +43,10 @@ const insertProduct = async(req, res)=>{
 
     try {
         await insertProductDb(prodName, quantity, amount, category, prodURL, prodDescription)
-        res.json(await getProductsDb())
+        res.status(200).json(await getProductsDb())
         
     } catch (err) {
-        res.send('Error inserting a product')
+        res.status(500).send('Error inserting a product')
         throw err
         
     }
@@ -55,10 +55,10 @@ const insertProduct = async(req, res)=>{
 const deleteProduct = async(req, res)=>{
     try {
         await deleteProductDb(req.params.id)
-        res.json(await getProductsDb())
+        res.status(200).json(await getProductsDb())
         
     } catch (err) {
-        res.send('Error deleting a products')
+        res.status(500).send('Error deleting a products')
         throw err
     }
 }
@@ -66,6 +66,11 @@ const deleteProduct = async(req, res)=>{
 const editProduct = async(req, res)=>{
     let {prodName, quantity, amount, category, prodURL, prodDescription} = req.body
     let product = await getProductDb(req.params.id)
+
+    if(!product){
+        res.status(404).send('Product not found')
+    }
+    
     prodName? prodName = prodName: prodName = product.prodName
     quantity? quantity = quantity: quantity = product.quantity
     amount? amount = amount: amount = product.amount
@@ -75,9 +80,9 @@ const editProduct = async(req, res)=>{
 
     try {
         await editProductDb(prodName, quantity, amount, category, prodURL, prodDescription, req.params.id)    
-        res.send(await getProductsDb())
+        res.status(200).send(await getProductsDb())
     } catch (error) {
-        res.send('Error editing a product')
+        res.status(500).send('Error editing a product')
         throw err
     }
     
