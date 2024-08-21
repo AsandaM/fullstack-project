@@ -1,7 +1,7 @@
 import {pool} from '../config/config.js'
 
 const getProductsDb = async()=>{
-    let [data] = await pool.query('SELECT * FFROM products')
+    let [data] = await pool.query('SELECT * FROM products')
     return data
 }
 
