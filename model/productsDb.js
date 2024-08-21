@@ -21,17 +21,17 @@ const getProductDb = async(id)=>{
 }
 
 const deleteProductDb = async(id)=>{
-    await pool.query('DELETE FROM Products WHERE prodID = ?', [id])
+    await pool.query('DELETE FROM products WHERE prodID = ?', [id])
 }
 
 const insertProductDb = async(prodName, quantity, amount, category, prodURL, prodDescription)=>{
-    let [data] = await pool.query(`INSERT INTO Products (prodName, quantity, amount, category, prodURL, prodDescription) VALUES (?,?,?,?,?,?)`, [prodName, quantity, amount, category, prodURL, prodDescription])
+    let [data] = await pool.query(`INSERT INTO products (prodName, quantity, amount, category, prodURL, prodDescription) VALUES (?,?,?,?,?,?)`, [prodName, quantity, amount, category, prodURL, prodDescription])
     return data
 }
 
 
 const editProductDb = async(prodName, quantity, amount, category, prodURL, prodDescription, id)=>{
-    await pool.query(`UPDATE Products 
+    await pool.query(`UPDATE products 
         SET prodName = ?, quantity = ?, amount = ?, category = ?, prodURL = ?, prodDescription = ?
         WHERE prodID = ?`, [prodName, quantity, amount, category, prodURL, prodDescription, id])
 }
