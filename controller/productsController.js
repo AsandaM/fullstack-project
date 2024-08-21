@@ -55,7 +55,7 @@ const insertProduct = async(req, res)=>{
 const deleteProduct = async(req, res)=>{
     try {
         await deleteProductDb(req.params.id)
-        res.send('Product has been deleted')
+        res.json(await getProductsDb())
         
     } catch (err) {
         res.send('Error deleting a products')
