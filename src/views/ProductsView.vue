@@ -57,7 +57,7 @@
       </div>
     </div>
   </div>
-+
+
 </template>
 
 <script>
@@ -317,6 +317,10 @@ display: flex;
 justify-content: center;
 flex-direction: column; 
 gap: 1rem;
+}
+
+.not-found-message{
+  margin: auto;
 }
 
 }

@@ -3,11 +3,11 @@
     <div class="container-fluid">
     
   <div class="home-category">
-    <h1 class="pt-5 heading">Shop by Category</h1>
+    <h1 class="heading marginTop">Shop by Category</h1>
     <div class="categoryCircles pt-3">
       <div class="circle">
     <div class="circle-overlay">
-      <router-link to="/products"><p>Toner</p></router-link>
+     <p>Toner</p>
 
     </div>
     
@@ -16,7 +16,7 @@
 
     <div class="circle">
     <div class="circle-overlay">
-      <router-link to="/products"><p>Mask</p></router-link>
+      <p>Mask</p>
     </div>
     
     <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/oskin.png" alt="cardImage" loading="eager">
@@ -24,13 +24,14 @@
 
     <div class="circle">
     <div class="circle-overlay">
-      <router-link to="/products"><p>Moisturiser</p></router-link>
+      <p>Moisturiser</p>
     </div>
     
     <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/combinationSkin2.png" alt="cardImage" loading="eager">
     </div>
 
     </div>
+    <router-link to="/products"><button  class="btn-shopNew">View More</button></router-link>
   </div>
     
   <div class="home-blog ">
@@ -108,6 +109,10 @@ export default {
     </script>
     
     <style>
+    .marginTop{
+      margin-top: 2rem;
+    }
+
     .card-img-overlay{
         position: absolute;
         top: 0;
@@ -125,7 +130,7 @@ export default {
       font-weight: bold;
       color: var(--primary);
     }
-    
+
     .card-text{
       font-family: "Poppins", sans-serif;
       color: var(--primary);
@@ -138,6 +143,7 @@ export default {
       justify-content: center;
       gap: 3.5rem;
       padding-bottom: 3rem;
+      margin-top: 2rem;
     }
     
     .circle {
@@ -173,11 +179,6 @@ export default {
       font-family: "Poppins", sans-serif;
       font-weight: bold;
       font-size: 1.5rem;
-      transition: all .3s;
-    }
-
-    .circle-overlay p:hover{
-      transform: scale(1.4);
     }
     
     .circle-overlay a{
@@ -206,6 +207,7 @@ export default {
 }
 
 .home-blog{
+  padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
@@ -258,6 +260,10 @@ img[alt="slideImage2"] {
         .heading{
             font-size: 1.3rem;
         }
+
+        .marginTop{
+      margin-top: 0rem;
+    }
     
     .categoryCircles{
       display: flex;
