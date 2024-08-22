@@ -251,13 +251,17 @@ export default createStore({
         
       }
     },
-    async editUsers(context,id) {
+    async editUsers(context,data) {
+      
       try {
-        const results = (await axios.patch(`${apiURL}/users/${id}`) ).data
+      let {id,info} =data
+      // console.log(id, info);
+
+        const results = (await axios.patch(`${apiURL}/users/${id}`, info) ).data
         console.log(results);
         
         if(results) {
-          context.commit('setUsers', results)
+          context.commit('editUsers', results)
         } else {
           toast.error('Please try again later')  , {  
             autoClose: 2000

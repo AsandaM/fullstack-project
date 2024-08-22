@@ -63,6 +63,7 @@ import Card from './Card.vue'
     
     .home-shopNew{
       width: 100%;
+
     }
 
     .cardsDiv{

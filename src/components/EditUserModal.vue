@@ -3,10 +3,10 @@
       <div class="row">
         <!-- Modal -->
         <div class="modal fade" :id="'editUserModal'+user.userID" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editUserModalLabel">Edit Product</h1>
+                <h1 class="modal-title fs-5" id="editUserModalLabel">Edit User</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import { Modal } from 'bootstrap';
+
 export default {
 name: 'EditUserModal',
 props:['user'],
@@ -78,11 +80,20 @@ data() {
 },
 
 methods: {
-    editUsers(id) {
-          this.$store.dispatch('editUsers', id)
-        },
-  
+  editUsers(id) {
+    // Dispatch the action to edit the user
+    this.$store.dispatch('editUsers', { id: id, info: this.$data }).then(() => {
+      // Close the modal after saving changes
+      const modal = Modal.getInstance(document.getElementById('editUserModal' + id));
+      if (modal) {
+        modal.hide();
+      }
+    }).catch((error) => {
+      console.error("Error editing user:", error);
+    });
+  },
 },
+
 
 computed: {
         fetchUsers() {
@@ -134,5 +145,25 @@ computed: {
 .modal-footer{
   display: flex;
   justify-content: space-between;
+}
+
+@media (width < 999px)
+{
+  .modal-footer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.close-button{
+  width: 96%;
+}
+
+.save-button{
+  width: 96%;
+}
+
+
+
 }
 </style>
