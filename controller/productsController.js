@@ -71,12 +71,12 @@ const editProduct = async(req, res)=>{
         res.status(404).send('Product not found')
     }
     
-    // prodName? prodName = prodName: prodName = product.prodName
-    // quantity? quantity = quantity: quantity = product.quantity
-    // amount? amount = amount: amount = product.amount
-    // category? category = category: category = product.category
-    // prodURL? prodURL = prodURL: prodURL = product.prodURL
-    // prodDescription? prodDescription = prodDescription: prodDescription = product.prodDescription
+    prodName? prodName = prodName: prodName = product.prodName
+    quantity? quantity = quantity: quantity = product.quantity
+    amount? amount = amount: amount = product.amount
+    category? category = category: category = product.category
+    prodURL? prodURL = prodURL: prodURL = product.prodURL
+    prodDescription? prodDescription = prodDescription: prodDescription = product.prodDescription
 
     try {
         await editProductDb(prodName, quantity, amount, category, prodURL, prodDescription, req.params.id)    
