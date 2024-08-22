@@ -34,7 +34,7 @@ const insertUser = async (req, res) => {
         const existingUser = await getUserByEmailDb(emailAdd);
 
         if (existingUser) {
-            return res.status(400).json({ message: "User already exists. Please log in." });
+            return res.status(400).json({ message: "User already exists. Try enter a different email address." });
         }
         // Hash the password and insert the new user
         hash(userPass, 10, async (err, hashedP) => {
