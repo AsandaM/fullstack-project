@@ -67,6 +67,9 @@ const editProduct = async(req, res)=>{
     let {prodName, quantity, amount, category, prodURL, prodDescription} = req.body
     let product = await getProductDb(req.params.id)
 
+    console.log(product);
+    
+
     if(!product){
         res.status(404).send('Product not found')
     }
