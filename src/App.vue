@@ -1,14 +1,12 @@
 <template>
-
-  <div class="wrapper">
     <HeaderComp />
     <NavBar />
-    <main>
-      <router-view />
+    <main class="container-fluid">
+      <div class="row">
+        <router-view /> 
+      </div>
     </main>
     <FooterComp />
-  </div>
-
 </template>
 
 <script>
@@ -21,7 +19,7 @@ export default {
     NavBar,
     HeaderComp,
     FooterComp
-  } 
+  }
 }
 
 </script>

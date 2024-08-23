@@ -1,15 +1,15 @@
 <template>
-    <div class="container-fluid">
-      <div class="row">
+    <!-- <div class="container">
+      <div class="row"> -->
         <!-- Modal -->
-        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal " id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="addProductModalLabel">Add New Product</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body d-flex justify-content-center">
                 <form id="addProductForm" name="addProductForm">
                         <div class="mb-3">
                           <label for="productName" class="form-label">Product Name</label>
@@ -45,8 +45,8 @@
           </div>
         </div>
 
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
 </template>
 
 <script>
@@ -130,4 +130,14 @@ computed: {
   display: flex;
   justify-content: space-between;
 }
+
+/* @media (width < 290px)
+{
+  .modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+} */
+
 </style>

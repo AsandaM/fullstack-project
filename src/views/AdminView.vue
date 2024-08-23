@@ -1,17 +1,15 @@
 <template>
-    <div class="container-fluid" id="admin">
-      <div class="row">
+    <div class="container">
+      <div class="row" id="admin">
         <div class="banner-overlay"></div>
         <div class="banner-image">
             <div class="banner-content">
             <h1 class="animate__animated animate__fadeInDown">Admin</h1>
+            <button @click="scrollDown" class="scroll-btn animate__animated animate__fadeInUp">↓</button>
             </div> 
        </div>
       </div>
-    </div>
-
-    <div class="container-fluid" id="admin-content">
-      <div class="row">
+      <div class="row" id="admin-content">
         <h1 class="heading">Products Table</h1>
         <div class="adminButtons">
           <button class="admin-button" @click="sortByNameAsc">Sorting Alphabetically</button>
@@ -24,7 +22,7 @@
         <div class="tableContainer">
               <table>
                 <thead>
-                 <th>Product Name</th>
+                 <th class="mobile-email">Product Name</th>
                  <th>Category</th>
                  <th>Image</th>
                  <th>Amount</th>
@@ -72,12 +70,9 @@
 
           
       </div>
-    </div>
 
-    <!------------------------------- Users Table -------------------------------------------------->
-<div class="container-fluid" id="admin-content">
-    
-      <div class="row">
+      <!------------------------------- Users Table -------------------------------------------------->
+      <div class="row" id="admin-content">
         <h1 class="heading">Users Table</h1>
         <div class="adminButtons">
           <button class="admin-button" @click="sortUserNameAsc">Sorting Alphabetically</button>
@@ -94,7 +89,7 @@
                  <th>Lastname</th>
                  <th>Gender</th>
                  <th>User Profile</th>
-                 <th>Email Address</th>
+                 <th class="mobile-email">Email Address</th>
                  <th>Actions</th>
                 </thead>
                 <tbody v-if="fetchUsers">
@@ -111,7 +106,7 @@
                     <td>
                       <img :src="user.userProfile" :alt="user.firstName" loading="eager" class="img-fluid adminImages">
                     </td>
-                    <td class="mobile-email text-wrap">
+                    <td class="mobile-email">
                       {{ user.emailAdd }}
                     </td>
                     <td>
@@ -138,6 +133,7 @@
             </div>
 
       </div>
+
     </div>
 
   </template>
@@ -166,6 +162,13 @@ components: {
               return a.prodName.localeCompare(b.prodName)
             })
           },
+
+          scrollDown() {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    },
           //users sorting
           sortUserNameAsc(){
             this.$store.state.users.sort((a, b)=>{
@@ -229,7 +232,7 @@ components: {
   position: relative;
   z-index: 2;
   width: 44rem;
-  margin: 17rem auto 17rem;
+  margin: 15rem auto 15rem;
   font-family: "Poppins", sans-serif;
   color: var(--secondary);
 }
@@ -322,6 +325,23 @@ table{
   font-size: 1rem;
 } 
 
+.scroll-btn {
+  width: 4rem;
+  border-radius: 100%;
+  background-color: var(--alternative);
+  border: none;
+  color: var(--primary);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.scroll-btn:hover {
+  transition: 2s;
+        background-color: var(--awesome);
+}
+
 @media (width < 999px)
 {
   .heading{
@@ -330,17 +350,22 @@ table{
  padding-bottom: 3rem;
 }
 
+.scroll-btn {
+    display: none;
+  }
+
+
   img[alt="banner-img"]{
     width: 80%;
   }
 
   .banner-content{
-    width: 18rem;
+    width: 100%;
     margin: 14rem auto 14rem;
   }
 
   .admin-button{
-  width: 16rem;
+  width: 79%;
   margin: auto;
 }
 
@@ -349,6 +374,7 @@ table{
   justify-content: center;
   flex-direction: column; 
   gap: 1rem;
+  width: 100%;
 }
 
 .adminImages{
@@ -356,7 +382,7 @@ table{
 }
 
 table{
-  width: 64%;
+  width: 79%;
   margin: auto;
   margin-top: 2rem;
 }
@@ -390,6 +416,7 @@ tr {
 td {
     position: relative;
     padding-left: 50%;
+    word-wrap: break-word;
 }
 
 td:before {
@@ -406,6 +433,9 @@ td:before {
   word-wrap: break-word;
 }
 
+.word-wrap{
+  word-wrap: break-word;
+}
 /* Products Table Mobile*/
 .tableContainer td:nth-of-type(1):before { content: "Product Name"; }
 .tableContainer td:nth-of-type(2):before { content: "Category"; }

@@ -1,7 +1,7 @@
 <template>
-    <div class="container-fluid">
+<div class="container-fluid no-gutters">
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators d-none d-md-block">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -19,6 +19,7 @@
               <a class="lnk text-white" href="https://www.linkedin.com/in/leah-basson-23a4192a0" alt="linkedin icon" target="_blank"><i class="bi bi-linkedin"></i></a>
               <a class="lnk text-white" href="https://github.com/LeahBasson" target="_blank"><i class="bi bi-github"></i></a>
               </div>
+              <button @click="scrollDown" class="scroll-btn">↓</button>
             </div>
             <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/skincareBanner19.png" alt="slideImage" loading="eager">
           </div>
@@ -33,6 +34,7 @@
               <a class="lnk text-white" href="https://www.linkedin.com/in/leah-basson-23a4192a0" alt="linkedin icon" target="_blank"><i class="bi bi-linkedin"></i></a>
               <a class="lnk text-white" href="https://github.com/LeahBasson" target="_blank"><i class="bi bi-github"></i></a>
               </div>
+              <button @click="scrollDown" class="scroll-btn">↓</button>
             </div>
             <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/skincareBanner3.jpg" alt="slideImage" loading="eager">
           </div>
@@ -48,6 +50,7 @@
               <a class="lnk text-white" href="https://www.linkedin.com/in/leah-basson-23a4192a0" alt="linkedin icon" target="_blank"><i class="bi bi-linkedin"></i></a>
               <a class="lnk text-white" href="https://github.com/LeahBasson" target="_blank"><i class="bi bi-github"></i></a>
               </div>
+              <button @click="scrollDown" class="scroll-btn">↓</button>
             </div>
             <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/skincareBanner22.png" alt="slideImage" loading="eager">
           </div>
@@ -62,19 +65,38 @@
         </button>
       </div> 
 
-    </div>
+</div>
+        
+
 </template>
 
 <script>
 export default {
-    name: "CarouselBanner"
+    name: "CarouselBanner",
+
+    methods: {
+    scrollDown() {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
+  }
 }
 </script>
 
 <style>
-.carousel-inner{
-        width: 100%;
-    }
+
+.container-fluid.no-gutters {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-inner {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
     
     img[alt='slideImage']{
         width: 100%;
@@ -152,8 +174,29 @@ export default {
        font-size: 1.3rem;
     }
 
+    .scroll-btn {
+  width: 4rem;
+  border-radius: 100%;
+  background-color: var(--alternative);
+  border: none;
+  color: var(--primary);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.scroll-btn:hover {
+  transition: 2s;
+        background-color: var(--awesome);
+}
+
     @media (width < 999px)
     {
+      .scroll-btn {
+       display: none;
+      }
+
         img[alt='slideImage']{
         width: 100%;
         height: 40vh;
