@@ -245,9 +245,17 @@ export default createStore({
           }  
         }
       } catch (e) {
-        toast.error(`${e.message}`, {
+        if(e.response && e.response.data && e.response.data.message){
+          toast.error(`${e.response.data.message}`,{
+            autoClose: 5000
+          })
+
+        }else{
+          toast.error(`${e.message}`, {
           autoClose: 2000
         })
+        }
+        
         
       }
     },
@@ -261,7 +269,7 @@ export default createStore({
         console.log(results);
         
         if(results) {
-          context.commit('editUsers', results)
+          context.commit('setUsers', results)
         } else {
           toast.error('Please try again later')  , {  
             autoClose: 2000
