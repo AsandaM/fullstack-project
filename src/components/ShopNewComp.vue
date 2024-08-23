@@ -121,15 +121,18 @@ import Card from './Card.vue'
       justify-content: center;
       flex-direction: column;
       gap: 3.5rem;
+      margin: auto;
     }
 
     .btn-shopNew{
-      width: 16rem;
+      width: 12rem;
+      margin-bottom: 0rem;
     }
 
     .heading{
             font-size: 1.6rem;
         }
+
   }
 
 </style>

@@ -33,7 +33,7 @@
 @media (width < 999px)
 { 
     .card{
-  width: 16rem;
+  width: 12rem;
   margin: auto;
 }
 }

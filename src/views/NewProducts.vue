@@ -1,19 +1,18 @@
 <template>
-    <div class="container-fluid" id="newProducts">
-      <div class="row">
+    <div class="container" >
+      <div class="row" id="newProducts">
         <div class="banner-overlay"></div>
         <div class="banner-image">
             <div class="banner-content">
             <h3 class="animate__animated animate__fadeInDown">Radiant Skin Starts Here</h3>
             <p class="animate__animated animate__fadeInUp">Discover our latest skincare innovations designed to bring out your natural glow. From hydration to anti-aging, our products are crafted with care and backed by science to deliver real results. Elevate your skincare routine with us today!</p>
+            <button @click="scrollDown" class="scroll-btn animate__animated animate__fadeInUp">↓</button>
             </div> 
        </div>
       </div>
-    </div>
 
-   
-  <div class="container-fluid" id="newDisplay">
-    <div class="product-display">
+      <div class="row" id="newDisplay">
+        <div class="product-display">
       <h1 class="heading">New Products</h1>
       <div class="product-interaction">
         <form class="d-flex mt-3" role="search">
@@ -58,8 +57,10 @@
         </Card>
       </div>
     </div>
-  </div>
+      </div>
+    </div>
 
+  
 </template>
 
 <script>
@@ -105,6 +106,13 @@ export default {
         this.sortButtonText = 'PRICE: LOW TO HIGH';
       }
       this.isToggle = !this.isToggle;
+    },
+
+    scrollDown() {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
     }
   },
 
@@ -174,7 +182,7 @@ export default {
   position: relative;
   z-index: 2;
   width: 44rem;
-  margin: 14rem auto 14rem;
+  margin: 12rem auto 12rem;
   font-family: "Poppins", sans-serif;
   color: var(--secondary);
 }
@@ -190,7 +198,7 @@ export default {
 }
 
 .product-display{
-  width: 65%;
+  width: 66%;
   margin: auto;
 }
 
@@ -242,6 +250,10 @@ export default {
   cursor: pointer;
 }
 
+.card{
+  width: 18rem;
+}
+
 .cardsDiv{
       display: flex;
       justify-content: center;
@@ -278,15 +290,40 @@ export default {
       color: var(--primary);
     }
 
+    .scroll-btn {
+  width: 4rem;
+  border-radius: 100%;
+  background-color: var(--alternative);
+  border: none;
+  color: var(--primary);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.scroll-btn:hover {
+  transition: 2s;
+        background-color: var(--awesome);
+}
+
 @media (width < 999px)
 {
   img[alt="banner-img"]{
     width: 80%;
   }
 
+  .scroll-btn {
+    display: none;
+  }
+
   .banner-content{
-    width: 18rem;
+    width: 100%;
     margin: 6rem auto 6rem;
+  }
+
+  .cardsDiv{
+    width: 100%;
   }
 
   .product-interaction{
@@ -294,15 +331,27 @@ export default {
   justify-content: center;
   flex-direction: column; 
   gap: 1rem;
+  margin: auto;
+  width: 100%;
 }
 
-.product-display .form-control{
-  width: 16rem;
+.newDisplay{
+  width: 100%;
+}
+
+.product-display{
+  width: 70%;
   margin: auto;
 }
 
+.product-display .form-control{
+  width: 100%;
+  margin: auto;
+  font-size: 0.7rem;
+}
+
 .product-button{
-  width: 16rem;
+  width: 100%;
   margin: auto;
 }
 
@@ -316,6 +365,10 @@ export default {
 .heading{
     font-size: 1.8rem;
     padding-bottom: 0rem;
+}
+
+.card{
+  width: 16rem;
 }
 
 }

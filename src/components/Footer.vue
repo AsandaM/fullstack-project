@@ -1,8 +1,5 @@
 <template>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="Footer mt-5">
+    <div class="Footer mt-5">
             <div class="footerAlignment">
                 <div class="footerLeftContent">
                 <h4 fw-700>Unlock Your Best Skin: Exclusive Tips Inside</h4>
@@ -40,10 +37,8 @@
             </div>     
         <p class="fs-4 text-black mt-2">Skin Oasis &copy; {{ cYear }}</p>
     </div>
-    </div>   
-</div>
-    
-     
+
+ 
 </template>
 
 <script>
@@ -168,7 +163,12 @@
 
   @media (width < 999px)
   {
+    .Footer{
+       width: 100%;
+    }
+    
     .footerAlignment{
+      width: 100%;
     display: flex;
     justify-content: center;
     padding-top: 2rem;
@@ -176,7 +176,7 @@
   }
 
   .footerLeftContent{
-    width: 16rem;
+    width: 62%;
     display: flex;
     justify-content: center;
    flex-direction: column;
@@ -209,25 +209,24 @@
     gap: 1rem;
     width: 25rem;
     margin-top: 2rem;
+    width: 100%;
   }
 
   .footerLeftContent .button1{
-     width: 16rem;
+     width: 70%;
     margin-top: 0.6rem;
     font-size: 0.7rem;
   }
 
   .footerLeftContent .form-control{
-    width: 16rem;
+    width: 70%;
     font-size: 0.7rem;
+    margin: auto;
   }
 
   .footerLeftContent .contact-label{
     font-size: 0.7rem;
-   display: flex;
-   justify-content: center;
-   align-items: start;
-   text-align: left;
+  margin: auto;
    margin-top: 0.5rem;
   }
 

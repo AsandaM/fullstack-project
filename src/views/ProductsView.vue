@@ -1,19 +1,20 @@
 <template>
-  <div class="container-fluid" id="newProducts">
-    <div class="row">
+  <div class="container">
+    <div class="row" id="newProducts">
       <div class="banner-overlay"></div>
       <div class="banner-image">
           <div class="banner-content">
           <h3 class="animate__animated animate__fadeInDown">Explore Our Full Skincare Collection</h3>
           <p class="animate__animated animate__fadeInUp">From toners, masks to moisturers, find everything you need for a complete skincare routine. Our carefully curated products are designed to work together, targeting every skin concern with precision and care. Discover your perfect match today!</p>
+          <button @click="scrollDown" class="scroll-btn animate__animated animate__fadeInUp">↓</button>
           </div> 
      </div>
     </div>
-  </div>
 
-  <div class="container-fluid" id="newDisplay">
-    <div class="product-display" id="product-section">
-      <h1 class="heading">All Products</h1>
+    <div class="row" id="product-section">
+      <div class="product-display">
+
+        <h1 class="heading">All Products</h1>
       <div class="product-interaction">
         <form class="d-flex mt-3" role="search">
           <input class="form-control" type="text" placeholder="Search by product name" id="searchInput" v-model="searchQuery">
@@ -55,7 +56,10 @@
           </template>
         </Card>
       </div>
+
+      </div>
     </div>
+
   </div>
 
 </template>
@@ -86,6 +90,13 @@ components: {
     // Filter by category
     filterByCategory(category) {
       this.selectedCategory = category;
+    },
+
+    scrollDown() {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
     },
   
     //Sort Price
@@ -184,7 +195,7 @@ z-index: 1;
 position: relative;
 z-index: 2;
 width: 44rem;
-margin: 14rem auto 14rem;
+margin: 12rem auto 12rem;
 font-family: "Poppins", sans-serif;
 color: var(--secondary);
 }
@@ -200,7 +211,7 @@ color: var(--secondary);
 }
 
 .product-display{
-width: 65%;
+width: 66%;
 margin: auto;
 }
 
@@ -288,6 +299,23 @@ cursor: pointer;
       color: var(--primary);
     }
 
+    .scroll-btn {
+  width: 4rem;
+  border-radius: 100%;
+  background-color: var(--alternative);
+  border: none;
+  color: var(--primary);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.scroll-btn:hover {
+  transition: 2s;
+        background-color: var(--awesome);
+}
+
 @media (width < 999px)
 {
 .heading{
@@ -299,27 +327,42 @@ img[alt="banner-img"]{
   width: 80%;
 }
 
+.scroll-btn {
+    display: none;
+  }
+
 .banner-content{
-  width: 18rem;
-  margin: 3rem auto 6rem;
+  width: 100%;
   margin: 6rem auto 6rem;
 }
 
-.product-interaction{
-display: flex;
-justify-content: center;
-flex-direction: column; 
-gap: 1rem;
+.cardsDiv{
+    width: 100%;
+  }
+
+  .product-interaction{
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+  gap: 1rem;
+  margin: auto;
+  width: 100%;
+}
+
+.product-display{
+  width: 70%;
+  margin: auto;
 }
 
 .product-display .form-control{
-width: 16rem;
-margin: auto;
+  width: 100%;
+  margin: auto;
+  font-size: 0.7rem;
 }
 
 .product-button{
-width: 16rem;
-margin: auto;
+  width: 100%;
+  margin: auto;
 }
 
 .buttons{

@@ -1,6 +1,6 @@
 <template>
     
-    <div class="container-fluid">
+    <div class="home-container">
     
   <div class="home-category">
     <h1 class="heading marginTop">Shop by Category</h1>
@@ -37,9 +37,9 @@
     <!-- <router-link to="/products"><button  class="btn-shopNew">View More</button></router-link> -->
   </div>
     
-  <div class="home-blog ">
-    
-    <div id="carouselExample" class="carousel slide pt-5" data-bs-ride="carousel" data-bs-interval="3000">
+  
+    <div class="carousel-containe">
+      <div id="carouselExample" class="carousel slide pt-5" data-bs-ride="carousel" data-bs-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="overlay"></div>
@@ -68,8 +68,10 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>  
-  </div>
+</div> 
+    </div>
+     
+  
 
   <div class="home-ourStory">
     <h1 class="pt-4 heading">Sustainably Sourced</h1>
@@ -115,6 +117,23 @@ export default {
     .marginTop{
       margin-top: 2rem;
     }
+
+    .home-container {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-container {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-inner {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 
     .card-img-overlay{
         position: absolute;
@@ -276,11 +295,11 @@ img[alt="slideImage2"] {
     }
     
     .circle img{
-      width: 16rem;
+      width: 12rem;
     }
     .circle{
       margin: auto;
-      width: 16rem;
+      width: 12rem;
     }
     .circle-overlay p{
       margin: 5rem auto 2rem;
@@ -312,7 +331,7 @@ img[alt="slideImage2"] {
 }
 
 .card{
-  width: 16rem;
+  width: 12rem;
 }
 
 .ourStoryCards .card-title{
@@ -324,6 +343,11 @@ img[alt="slideImage2"] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 0rem;
+  padding-bottom: 2rem;
+}
+.categoryCircles{
+  margin-top: 0rem;
 }
     }
     

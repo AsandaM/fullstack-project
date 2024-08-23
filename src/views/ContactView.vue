@@ -1,17 +1,16 @@
 <template>
-    <div class="container-fluid" id="contact">
-      <div class="row">
+    <div class="container">
+      <div class="row" id="contact">
         <div class="banner-overlay"></div>
         <div class="banner-image">
             <div class="banner-content">
             <h3 class="animate__animated animate__fadeInDown">Get in Touch with Us</h3>
             <p class="animate__animated animate__fadeInUp">Whether you have questions about our products, need personalized recommendations, or just want to share your experience, we’d love to hear from you. Reach out to us today, and let’s start a conversation!</p>
+            <button @click="scrollDown" class="scroll-btn animate__animated animate__fadeInUp">↓</button>
             </div> 
        </div>
       </div>
-    </div>
 
-    <div class="container-fluid">
       <div class="row">
         <h1 class="heading">Contact Us</h1>
 
@@ -57,6 +56,7 @@
       </div>
     </div>
 
+
   </template>
 
 <script>
@@ -73,6 +73,13 @@ export default {
   },
 
   methods: {
+    scrollDown() {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    },
+
      validateForm(e){
       let name = document.querySelector('#name').value;
       let email = document.querySelector('#email').value;
@@ -141,7 +148,7 @@ export default {
   position: relative;
   z-index: 2;
   width: 44rem;
-  margin: 15rem auto 15rem;
+  margin: 12rem auto 12rem;
   font-family: "Poppins", sans-serif;
   color: var(--secondary);
 }
@@ -202,14 +209,35 @@ export default {
   font-family:"Poppins", sans-serif;
 }
 
+.scroll-btn {
+  width: 4rem;
+  border-radius: 100%;
+  background-color: var(--alternative);
+  border: none;
+  color: var(--primary);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.scroll-btn:hover {
+  transition: 2s;
+        background-color: var(--awesome);
+}
+
 @media (width < 999px)
 {
   img[alt="banner-img"]{
     width: 80%;
   }
 
+  .scroll-btn {
+    display: none;
+  }
+
   .banner-content{
-    width: 18rem;
+    width: 100%;
     margin: 6rem auto 6rem;
   }
   .heading{
@@ -221,14 +249,19 @@ export default {
   justify-content: space-between;
   width: 100%;
   margin-bottom: 6rem;
+  margin: auto;
 }
 
 .button1{
-  width: 6rem;
+  width: 5rem;
 }
 
 .contact-label{
   text-align: left;
+}
+
+.text-start{
+  font-size: 0.9rem;
 }
 
 }
