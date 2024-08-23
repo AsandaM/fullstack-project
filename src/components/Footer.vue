@@ -22,7 +22,7 @@
                     <div class="footer-links padding">
                       <a class="lnk text-white" href="mailto:your-email@example.com" alt="outlook icon" target="_blank"><i class="bi bi-envelope"></i></a>
                       <a class="lnk text-white" href="https://www.linkedin.com/in/leah-basson-23a4192a0" alt="linkedin icon" target="_blank"><i class="bi bi-linkedin"></i></a>
-                      <a class="lnk text-white" href="https://github.com/LeahBasson" target="_blank"><i class="bi bi-github"></i></a>
+                      <a class="lnk text-white" href="https://github.com/AsandaM/fullstack-project" target="_blank"><i class="bi bi-github"></i></a>
                     </div>
                 </div>
                 <div class="footer-usefulLinks">

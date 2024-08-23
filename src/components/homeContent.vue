@@ -201,8 +201,13 @@ export default {
       font-family: "Poppins", sans-serif;
       font-weight: bold;
       font-size: 1.5rem;
+      transition: all 0.5s;
     }
     
+    .circle-overlay p:hover{
+      transform: scale(1.2);
+    }
+
     .circle-overlay a{
       text-decoration: none;
     }
