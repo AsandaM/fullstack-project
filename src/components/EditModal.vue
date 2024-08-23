@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import { Modal } from 'bootstrap';
+
 export default {
 name: 'EditModal',
 props:['product'],
@@ -68,12 +70,18 @@ data() {
 },
 
 methods: {
-    editProducts(id) {
-      console.log('hehe'+id);
-
-          this.$store.dispatch('editProducts',{id:id, info:this.$data})
-        },
-  
+  editProducts(id) {
+   
+    this.$store.dispatch('editProducts', { id: id, info: this.$data }).then(() => {
+     
+      const modal = Modal.getInstance(document.getElementById('editProductModal' + id));
+      if (modal) {
+        modal.hide();
+      }
+    }).catch((error) => {
+      console.error("Error editing user:", error);
+    });
+  },
 },
 
 computed: {
