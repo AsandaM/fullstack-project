@@ -81,9 +81,9 @@ data() {
 
 methods: {
   editUsers(id) {
-    // Dispatch the action to edit the user
+   
     this.$store.dispatch('editUsers', { id: id, info: this.$data }).then(() => {
-      // Close the modal after saving changes
+     
       const modal = Modal.getInstance(document.getElementById('editUserModal' + id));
       if (modal) {
         modal.hide();
