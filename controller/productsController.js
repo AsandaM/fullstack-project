@@ -1,5 +1,4 @@
 import {getProductsDb, getProductDb, deleteProductDb, insertProductDb, editProductDb, getHomeRecentDb, getRecentDb} from '../model/productsDb.js'
-// import { getUserDb } from '../model/usersDb.js'
 
 const getProducts = async(req, res)=>{
     try{
@@ -91,7 +90,6 @@ const editProduct = async(req, res)=>{
     
 
 }
-
 
 
 export {getProducts, getProduct, insertProduct, deleteProduct, editProduct, getRecent, getHomeRecent}

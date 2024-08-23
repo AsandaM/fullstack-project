@@ -103,7 +103,11 @@ const editUser = async(req, res)=>{
 }
 
 const loginUser = (req,res)=>{
-    res.status(200).json({message:"You have signed in ", token:req.body.token})
+    try {
+        res.status(200).json({message:"You have signed in ", token:req.body.token})    
+    } catch (err) {
+        res.status(500).send('Error loging in')
+    }
 }
 
 export {getUsers, getUser, insertUser, deleteUser, editUser, loginUser}

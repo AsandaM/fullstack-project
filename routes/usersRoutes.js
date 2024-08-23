@@ -3,8 +3,6 @@ import { getUsers, getUser, insertUser, deleteUser, editUser, loginUser } from '
 import { checkUser, emailCheck } from '../middleware/authenticate.js'
 
 const router = express.Router()
-
-
 router.get('/', getUsers)
 router.post('/signup', insertUser)
 

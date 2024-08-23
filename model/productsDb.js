@@ -36,6 +36,4 @@ const editProductDb = async(prodName, quantity, amount, category, prodURL, prodD
         WHERE prodID = ?`, [prodName, quantity, amount, category, prodURL, prodDescription, id])
 }
 
-
-
 export {getProductsDb, getProductDb, deleteProductDb, insertProductDb, editProductDb, getRecentDb, getHomeRecentDb}
