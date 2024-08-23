@@ -38,7 +38,7 @@
   </div>
     
   
-    <div class="carousel-containe">
+    <div class="carousel-container marginTop">
       <div id="carouselExample" class="carousel slide pt-5" data-bs-ride="carousel" data-bs-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -46,7 +46,7 @@
       <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/wrinklesBanner3.png" alt="slideImage" loading="eager">
       <div class="carousel-caption2">
         <h1 class="animate__animated animate__fadeInUp">Reveal Your Youthful Glow: Say Goodbye to Wrinkles</h1>
-        <p class="animate__animated animate__fadeInUp">Fine lines and wrinkles don’t stand a chance with our advanced skincare solutions. Packed with powerful ingredients, our products are designed to rejuvenate and nourish your skin, leaving it smooth, firm, and radiant.</p>
+        <p class="animate__animated animate__fadeInUp">Fine lines and wrinkles don’t stand a chance with our advanced skincare solutions. Packed with powerful ingredients, our products are designed to rejuvenate and nourish your skin.</p>
         <router-link to="/products"><button class="hb-button animate__animated animate__fadeInUp">Discover</button></router-link>
       </div>
     </div>
@@ -74,7 +74,7 @@
   
 
   <div class="home-ourStory">
-    <h1 class="pt-4 heading">Sustainably Sourced</h1>
+    <h1 class="pt-4 heading marginTop">Sustainably Sourced</h1>
     <div class="ourStoryCards">
       <div class="card text-bg-dark">
       <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/peta-approved.jpg" alt="Rabbit" loading="eager">
@@ -146,7 +146,7 @@ export default {
     }
     
     .heading{
-      padding-top: 3rem;
+      padding-top: 6rem;
       padding-bottom: 2rem;
       font-family: "Montserrat", sans-serif;
       font-weight: bold;
@@ -281,6 +281,7 @@ img[alt="slideImage2"] {
         transition: 2s;
         background-color: var(--awesome);
     }
+
 
     @media (width < 999px)
     {
