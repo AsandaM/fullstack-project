@@ -6,8 +6,9 @@
     <h1 class="heading marginTop">Shop by Category</h1>
     <div class="categoryCircles pt-3">
       <div class="circle">
-    <div class="circle-overlay">
-     <p>Toner</p>
+    <div class="circle-overlay"> 
+      <router-link :to="{path: '/products/Toner', hash: '#product-section'}"><p>Toner</p></router-link>
+     
 
     </div>
     
@@ -16,7 +17,8 @@
 
     <div class="circle">
     <div class="circle-overlay">
-      <p>Mask</p>
+      <router-link :to="{path: '/products/Mask', hash: '#product-section'}"><p>Mask</p></router-link>
+      
     </div>
     
     <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/oskin.png" alt="cardImage" loading="eager">
@@ -24,14 +26,15 @@
 
     <div class="circle">
     <div class="circle-overlay">
-      <p>Moisturiser</p>
+      <router-link :to="{path: '/products/Moisturiser', hash: '#product-section'}"><p>Moisturiser</p></router-link>
+      
     </div>
     
     <img class="img-fluid" src="https://leahbasson.github.io/MyImages/skincareWebsite/combinationSkin2.png" alt="cardImage" loading="eager">
     </div>
 
     </div>
-    <router-link to="/products"><button  class="btn-shopNew">View More</button></router-link>
+    <!-- <router-link to="/products"><button  class="btn-shopNew">View More</button></router-link> -->
   </div>
     
   <div class="home-blog ">
